@@ -2,12 +2,99 @@ version: "2.0"
 
 rules:
 
-- rule: Say goodbye anytime the user says goodbye
+- rule: Say hello whenever they say hello
   steps:
-  - intent: goodbye
-  - action: utter_goodbye
+  - intent: saludar
+  - action: utter_saludar
 
-- rule: Say 'I am a bot' anytime the user challenges
+- rule: Say goodbye whenever they say goodbye
   steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+  - intent: despedir
+  - action: utter_despedir
+
+- rule: Be grateful when they thank you
+  steps:
+  - intent: agradecer
+  - action: utter_agradecer
+  
+- rule: Respond to chitchat
+  steps:
+  - intent: chitchat
+  - action: utter_chitchat
+
+- rule: Show video
+  steps:
+  - intent: pedir_video
+  - action: utter_video
+
+- rule: Activate form
+  steps:
+   - intent: pedir_nombre
+   - action: name_form
+   - active_loop: name_form
+
+- rule: Submit form
+  condition:
+  # Condition that form is active.
+  - active_loop: name_form
+  steps:
+  # Form is deactivated
+  - action: name_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_submit
+  - action: utter_slots_values
+
+stories:
+- story: happy bienvenida
+  steps:
+  - intent: saludar
+  - action: utter_saludar
+  - intent: mood_genial
+  - action: utter_feliz
+  - action: utter_preguntar
+
+- story: sad bienvenida
+  steps:
+  - intent: saludar
+  - action: utter_saludar
+  - intent: mood_triste
+  - action: utter_valorar_situacion
+  - intent: pedir_consejo
+    entities:
+    - problema: estres
+    - problema: miedo
+    - problema: incomprension
+  - slot_was_set:
+    - problema: estres
+    - problema: miedo
+    - problema: incomprension
+  - action: action_dar_consejo
+
+- story: Tecnica relajacion
+  steps:
+  - intent: pedir_relajacion
+  - action: utter_elegir_tecnica
+  - intent: seleccionar_tecnica
+    entities:
+    - tecnica: diafragmatica
+    - tecnica: imaginacion
+  - slot_was_set:
+    - tecnica: diafragmatica
+    - tecnica: imaginacion
+  - action: utter_ready
+  - intent: afirmar
+  - slot_was_set:
+    - tecnica: diafragmatica
+    - tecnica: imaginacion
+  - action: action_iniciar_relajacion
+  - action: utter_feedback
+  - intent: afirmar
+  - slot_was_set:
+    - tecnica: diafragmatica
+    - tecnica: imaginacion 
+  - action: action_relajacion
+  
+
