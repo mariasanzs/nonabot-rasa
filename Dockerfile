@@ -5,6 +5,7 @@ COPY server.sh /app/server.sh
 
 USER root
 RUN pip install spacy
+RUN python -m spacy download es_core_news_md
 RUN chmod -R 777 /app
 USER 1001
 
