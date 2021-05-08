@@ -1,8 +1,3 @@
 #!/bin/sh
 
-if [ -z "$PORT"]
-then
-  PORT=5005
-fi
-
-rasa run --enable-api --port $PORT
+cd /rasa/ && rasa run --model models --enable-api --cors "*" --debug -p $PORT
