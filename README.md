@@ -1,4 +1,4 @@
-# Rasa NLU server template -nona bot
+# Rasa -nona bot
 
 This template contains all you need to deploy [Rasa NLU](https://rasa.com/) server on [Heroku cloud](https://heroku.com) to make your Rasa project visible globally.
 
