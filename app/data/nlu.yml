@@ -129,6 +129,7 @@ nlu:
     - me gustaria relajarme un poco
     - me apetece relajarme un poco
     - me apetece relajarme
+    - me apetece relajarme un pococ
 - intent: chitchat/ask_quien_eres
   examples: |
     - ¿quien eres?
@@ -177,6 +178,7 @@ nlu:
   examples: |
     - definicion de la imaginacion tematica
     - que es la imaginacion tematica
+    - definicion de imaginacion tematica
 - intent: chitchat/diafragmatica
   examples: |
     - definicion de la respiración diafragmatica

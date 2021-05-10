@@ -51,7 +51,7 @@ class ActionIniciarRelajacion(Action):
 
         if diaphragmatic_breathing:
             dispatcher.utter_message(text="Afloja cualquier ropa que te apriete")
-            time.sleep(20)
+            dispatcher.utter_message(response = "utter_recording")
             dispatcher.utter_message(text="Coloca los pies ligeramente separados. Apoya una mano sobre el abdomen y la otra sobre el pecho. Toma aire por la nariz y expúlsalo por la boca")
             dispatcher.utter_message(text="Si tienes algún tipo de problema nasal, puedes tomar el aire por la boca")
         if guided_imagery:
@@ -72,7 +72,7 @@ class ActionRelajacion(Action):
 
         if diaphragmatic_breathing:
             dispatcher.utter_message(text="Afloja cualquier ropa que te apriete")
-            time.sleep(20)
+            dispatcher.utter_message(response = "utter_recording")
             dispatcher.utter_message(text="Coloca los pies ligeramente separados. Apoya una mano sobre el abdomen y la otra sobre el pecho. Toma aire por la nariz y expúlsalo por la boca")
             dispatcher.utter_message(text="Si tienes algún tipo de problema nasal, puedes tomar el aire por la boca")
         if guided_imagery:

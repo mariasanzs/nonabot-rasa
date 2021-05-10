@@ -118,6 +118,13 @@ responses:
         title: Técnicas de relajación
       type: video
     text: Aquí tienes un vídeo sobre técnicas de relajación
+  utter_recording:
+  - attachment:
+      payload:
+        src: ./muneca.wav
+        title: grabacion
+      type: video
+    text: Aquí tienes una musica para escuchar mientras sigues este paso
   utter_ready:
   - text: Perfecto!, ¿Estás preparada?
   - text: Vale, ¿comenzamos?
